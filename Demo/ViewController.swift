@@ -9,11 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var label: UILabel!
+    
     var viewModel = ViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         calculate()
-        print(2)
+        label.text  = "Hello".localised()
     }
     
     func calculate(){
@@ -23,6 +25,10 @@ class ViewController: UIViewController {
     }
 }
 
-
+extension String {
+    func  localised() -> String {
+        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
+    }
     
+}
 
